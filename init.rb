@@ -45,7 +45,7 @@ Redmine::Plugin.register :redmine_anonymous_authors do
   name 'Redmine Anonymous Authors plug-in'
   author 'Anton Argirov'
   author_url 'http://redmine.academ.org'
-  description ''
+  description "Allows to specify the author's name and the email for anonymously created issues."
   url "http://redmine.academ.org"
   version '0.0.1'
 end
