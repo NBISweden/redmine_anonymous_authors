@@ -1,0 +1,7 @@
+<% if User.current.anonymous? %>
+  <div class="tabular">
+    <p><%= form.text_field :author_name %></p>
+    <p><%= form.text_field :author_mail %></p>
+  </div>
+<% end %>
+

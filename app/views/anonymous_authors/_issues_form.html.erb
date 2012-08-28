@@ -1,0 +1,5 @@
+<% if User.current.anonymous? %>
+  <p><%= form.text_field :author_name %></p>
+  <p><%= form.text_field :author_mail %></p>
+<% end %>
+
