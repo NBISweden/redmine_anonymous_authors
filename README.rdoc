@@ -1,0 +1,38 @@
+= Anonymous Authors plug-in
+
+Anonymous Authors plug-in:
+
+* Allows an anonymous user to enter his name and the e-mail address when adding an issue;
+* Allows to enter the name and the e-mail address when adding a note to the issue as anonymous user;
+* Displays the entered name and the e-mail address anywhere in Redmine instead of “Anonymous”;
+* Notifies the author of anonymously created issue when it is updated. You can add a note to the issue and the author will get the notification as a normal user;
+* When Redmine is set up to create issues from mails, it uses the name and the e-mail address from “From” header of the received mail;
+* Allows to filter issues by the author’s name and the author’s e-mail address (including anonymous authors);
+
+Recommended to use together with "Anonymous Watchers plug-in"
+
+== Installation And Configuration
+
+From a ZIP file:
+
+* Download the latest version of the plugin
+* Unzip to */plugins* (Redmine 2.x) or */vendor/plugins* (Redmine 1.x) folder of Redmine
+
+From a GIT repository:
+
+* Clone repository with <b>git clone git://git.academ.org/redmine_anonymous_authors.git plugins/redmine_anonymous_authors</b> command
+
+After download:
+
+* Run <b>rake redmine:plugins:migrate</b> (Redmine 2.x) or <b>rake db:migrate:plugins</b> (Redmine 1.x).
+* Restart Redmine.
+* Enable “Add issues” and “Add notes” permissions for the anonymous role, if you plan to permit anonymous users to add new issues through the WEB interface
+* Use <b>rake redmine:email:receive_imap(pop3)</b> with options <b>no_permission_check=1</b> (if needed) and <b>unknown_user=accept</b>
+
+== Compatibility
+
+This plug-in is compatible with Redmine 1.4.x, 2.0.x, 2.1.x
+
+== Changelog
+
+[0.0.1] Initial commit
