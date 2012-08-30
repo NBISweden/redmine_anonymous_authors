@@ -43,13 +43,7 @@ module RedmineAnonymousAuthors
       end
 
       def from_address
-        if from_object
-          if Redmine::VERSION::MAJOR >= 2
-            from_object.address
-          else
-            from_object.spec
-          end
-        end
+        from_object && from_object.address
       end
 
       def from_name
