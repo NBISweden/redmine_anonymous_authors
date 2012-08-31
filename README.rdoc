@@ -2,14 +2,15 @@
 
 Anonymous Authors plug-in:
 
-* Allows an anonymous user to enter his name and the e-mail address when adding an issue;
-* Allows to enter the name and the e-mail address when adding a note to the issue as anonymous user;
-* Displays the entered name and the e-mail address anywhere in Redmine instead of “Anonymous”;
-* Notifies the author of anonymously created issue when it is updated. You can add a note to the issue and the author will get the notification as a normal user;
-* When Redmine is set up to create issues from mails, it uses the name and the e-mail address from “From” header of the received mail;
-* Allows to filter issues by the author’s name and the author’s e-mail address (including anonymous authors);
+* Allows to the anonymous user to enter his name and e-mail address when adding an issue;
+* Allows to enter the name and e-mail address when adding a note to the issue as anonymous user;
+* Displays the entered name and e-mail address anywhere in Redmine instead of “Anonymous”;
+* Notifies the author of anonymously created issue when it is updated. You can add a note to the issue and author will get the notification as a normal user;
+* When Redmine is set up to create issues from mails, it uses the name and e-mail address from “From” header of the received mail;
+* Allows to filter issues by the author’s name and author’s e-mail address (including anonymous authors);
 
-Recommended to use together with "Anonymous Watchers plug-in"
+Recommended to use together with "Anonymous Watchers plug-in":
+http://redmine.academ.org/projects/redmine/wiki/Anonymous_Watchers_plug-in
 
 == Installation And Configuration
 
