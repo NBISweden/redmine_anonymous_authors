@@ -36,4 +36,5 @@ This plug-in is compatible with Redmine 1.4.x, 2.0.x, 2.1.x
 
 == Changelog
 
+[0.0.2] Added ability of anonymous reporting to private projects
 [0.0.1] Initial commit

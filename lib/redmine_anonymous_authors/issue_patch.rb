@@ -8,6 +8,7 @@ module RedmineAnonymousAuthors
         validates_format_of :author_mail, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :allow_blank => true
         alias_method_chain :author, :anonymous
         alias_method_chain :author=, :anonymous
+        alias_method_chain :visible?, :anonymous
       end
     end
 
@@ -27,6 +28,15 @@ module RedmineAnonymousAuthors
           self.author_name = self.author_mail = nil
         end
         self.author_without_anonymous = author
+      end
+
+      def visible_with_anonymous?(usr=nil)
+        usr ||= User.current
+        if usr.anonymous?
+          usr.mail == author_mail
+        else
+          visible_without_anonymous?(usr)
+        end
       end
     end
   end
