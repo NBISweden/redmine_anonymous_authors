@@ -12,7 +12,18 @@ module RedmineAnonymousAuthors
     module InstanceMethods
       def link_to_user_with_anonymous(user, options={})
         if user.is_a?(User) && user.anonymous?
-          User.current.anonymous? || user.mail.blank? ? h(user.name) : link_to_mail(user.mail, user.name)
+          if User.current.anonymous? && Setting.plugin_redmine_anonymous_authors[:hide_anonymous_email] == '1' || user.mail.blank?
+            h(user.name)
+          else
+            case Setting.plugin_redmine_anonymous_authors[:anonymous_format]
+            when 'name'
+              link_to_mail(user.mail, user.name, :title => user.mail)
+            when 'email'
+              link_to_mail(user.mail, nil, :title => user.name)
+            else
+              h("#{user.name} <") + link_to_mail(user.mail) + h(">")
+            end
+          end
         else
           link_to_user_without_anonymous(user, options)
         end

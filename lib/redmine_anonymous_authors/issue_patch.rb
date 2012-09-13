@@ -32,11 +32,7 @@ module RedmineAnonymousAuthors
 
       def visible_with_anonymous?(usr=nil)
         usr ||= User.current
-        if usr.anonymous?
-          usr.mail == author_mail
-        else
-          visible_without_anonymous?(usr)
-        end
+        visible_without_anonymous?(usr) || (usr.anonymous? && usr.mail == author_mail)
       end
     end
   end

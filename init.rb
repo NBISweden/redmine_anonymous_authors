@@ -1,4 +1,5 @@
 require 'redmine'
+require 'redmine_anonymous_authors'
 require 'redmine_anonymous_authors/hooks'
 
 to_prepare = Proc.new do
@@ -47,6 +48,12 @@ Redmine::Plugin.register :redmine_anonymous_authors do
   author_url 'http://redmine.academ.org'
   description "Allows to specify the author's name and the email for anonymously created issues."
   url "http://redmine.academ.org"
-  version '0.0.1'
+  version '0.0.2'
+
+  settings :default => {
+    :no_self_notified => '0',
+    :hide_anonymous_email => '1',
+    :anonymous_format => 'name'
+  }, :partial => 'settings/anonymous_authors'
 end
 
