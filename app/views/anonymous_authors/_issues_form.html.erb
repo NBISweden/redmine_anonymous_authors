@@ -1,4 +1,4 @@
-<% if User.current.anonymous? && (params[:action] == 'new' || params[:action] == 'create') %>
+<% if User.current.anonymous? && (params[:action] == 'new' || params[:action] == 'create') && !request.xhr? %>
   <p><%= form.text_field :author_name %></p>
   <p><%= form.text_field :author_mail %></p>
 <% end %>
