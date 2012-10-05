@@ -6,7 +6,7 @@ module RedmineAnonymousAuthors
       base.send(:include, InstanceMethods)
       base.class_eval do
         before_filter :recognize_anonymous, :only => [:create, :update]
-        before_filter :set_default_anonymous_author, :only => [:edit, :new, :show]
+        before_filter :set_default_anonymous_author, :only => [:edit, :new, :show, :update]
       end
     end
 
