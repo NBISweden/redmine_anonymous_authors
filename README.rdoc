@@ -36,6 +36,7 @@ This plug-in is compatible with Redmine 1.4.x, 2.0.x, 2.1.x
 
 == Changelog
 
+[0.0.3] * Fixed several bugs
 [0.0.2] * Added ability of anonymous reporting to private projects. 
         * Added plugin setting "No self notified" for anonymous authors
         * Added plugin setting for the display format of the links to anonymous users
