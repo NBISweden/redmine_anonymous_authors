@@ -12,7 +12,7 @@ module RedmineAnonymousAuthors
     module InstanceMethods
       def recognize_anonymous
         if params[:issue] && User.current.anonymous?
-          User.current.name, User.current.mail = params[:author_name], params[:author_mail]
+          User.current.name, User.current.mail = params[:author_name] || params[:issue][:author_name], params[:author_mail] || params[:issue][:author_mail]
           cookies[:author_name], cookies[:author_mail] = User.current.name, User.current.mail
           @issue.author = User.current if params[:action] == 'create'
         end

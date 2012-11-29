@@ -48,7 +48,7 @@ Redmine::Plugin.register :redmine_anonymous_authors do
   author_url 'http://redmine.academ.org'
   description "Allows to specify the author's name and the email for anonymously created issues."
   url "http://redmine.academ.org"
-  version '0.0.3'
+  version '0.0.4'
 
   settings :default => {
     :no_self_notified => '0',

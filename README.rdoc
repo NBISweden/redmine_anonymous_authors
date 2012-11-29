@@ -36,6 +36,8 @@ This plug-in is compatible with Redmine 1.4.x, 2.0.x, 2.1.x
 
 == Changelog
 
+[0.0.4] * Added ReST API compability: you can pass author_name and author_email parameters when creating or updating issue.
+          Wnen getting issue through ReST, you will also receive the author's mail as the attribute of <author> element.
 [0.0.3] * Fixed several bugs
 [0.0.2] * Added ability of anonymous reporting to private projects. 
         * Added plugin setting "No self notified" for anonymous authors
