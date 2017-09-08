@@ -16,6 +16,9 @@ module RedmineAnonymousAuthors
           cookies[:author_name], cookies[:author_mail] = User.current.name, User.current.mail
           @issue.author = User.current if params[:action] == 'create'
         end
+        if params[:action] == 'show'
+          @issue.author.mail = @issue.author_mail if @issue.author.anonymous?
+        end
         true
       end
     end
