@@ -17,8 +17,8 @@ module RedmineAnonymousAuthors
           anonymous = User.anonymous
           @available_filters["author_id"][:values] << [anonymous.name, anonymous.id.to_s]
         end
-        @available_filters["author_name"] = { :type => :text, :order => 5, :name => l(:field_author_name) }
-        @available_filters["author_mail"] = { :type => :text, :order => 5, :name => l(:field_author_mail) }
+        @available_filters["author_name"] = QueryFilter.new("author_name", { :type => :text, :order => 5, :name => l(:field_author_name) })
+        @available_filters["author_mail"] = QueryFilter.new("author_mail", { :type => :text, :order => 5, :name => l(:field_author_mail) })
         @available_filters
       end
 
