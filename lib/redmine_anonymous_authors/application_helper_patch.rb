@@ -5,7 +5,7 @@ module RedmineAnonymousAuthors
     def self.included(base)
       base.send(:include, InstanceMethods)
       base.class_eval do
-        alias_method_chain :link_to_user, :anonymous
+        alias_method :link_to_user, :link_to_user_with_anonymous
       end
     end
 
