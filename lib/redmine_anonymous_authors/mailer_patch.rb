@@ -5,7 +5,9 @@ module RedmineAnonymousAuthors
     def self.included(base)
       base.send(:include, InstanceMethods)
       base.class_eval do
+        alias_method :issue_add_without_anonymous, :issue_add
         alias_method :issue_add, :issue_add_with_anonymous
+        alias_method :issue_edit_without_anonymous, :issue_edit
         alias_method :issue_edit, :issue_edit_with_anonymous
         if Redmine::VERSION::MAJOR >= 2
           alias_method :mail, :mail_with_anonymous
