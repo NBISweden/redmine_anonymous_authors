@@ -5,7 +5,7 @@ module RedmineAnonymousAuthors
     def self.included(base)
       base.send(:include, InstanceMethods)
       base.class_eval do
-        before_filter :recognize_anonymous, :only => [:create, :update]
+        before_action :recognize_anonymous, :only => [:create, :update]
       end
     end
 

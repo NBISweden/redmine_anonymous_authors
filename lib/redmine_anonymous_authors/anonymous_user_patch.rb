@@ -5,10 +5,10 @@ module RedmineAnonymousAuthors
     def self.included(base)
       base.send(:include, InstanceMethods)
       base.class_eval do
-        alias_method_chain :name, :anonymous
-        alias_method_chain :mail, :anonymous
-        alias_method_chain :mail=, :anonymous
-        alias_method_chain :active?, :anonymous
+        alias_method :name, :name_with_anonymous
+        alias_method :mail, :mail_with_anonymous
+        alias_method :mail=, :mail_with_anonymous=
+        alias_method :active?, :active_with_anonymous?
         attr_writer :name
       end
     end

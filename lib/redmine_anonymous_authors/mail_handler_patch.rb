@@ -5,8 +5,8 @@ module RedmineAnonymousAuthors
     def self.included(base)
       base.send(:include, InstanceMethods)
       base.class_eval do
-        alias_method_chain :dispatch, :anonymous
-        alias_method_chain :create_user_from_email, :anonymous
+        alias_method :dispatch, :dispatch_with_anonymous
+        alias_method :create_user_from_email, :create_user_from_email_with_anonymous
       end
     end
 
