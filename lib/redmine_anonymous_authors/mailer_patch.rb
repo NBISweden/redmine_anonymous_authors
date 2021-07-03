@@ -10,22 +10,24 @@ module RedmineAnonymousAuthors
         alias_method :issue_edit_without_anonymous, :issue_edit
         alias_method :issue_edit, :issue_edit_with_anonymous
         if Redmine::VERSION::MAJOR >= 2
+          alias_method :mail_without_anonymous, :mail
           alias_method :mail, :mail_with_anonymous
         else
+          alias_method :create_mail_without_anonymous, :create_mail
           alias_method :create_mail, :create_mail_with_anonymous
         end
       end
     end
 
     module InstanceMethods
-      def issue_add_with_anonymous(issue, to_users, cc_users)
-        mail = issue_add_without_anonymous(issue, to_users, cc_users)
+      def issue_add_with_anonymous(user, issue)
+        mail = issue_add_without_anonymous(user, issue)
         redmine_headers 'Issue-Author' => issue.author.anonymous? ? issue.author.mail : issue.author.login
         mail
       end
-      def issue_edit_with_anonymous(journal, to_users, cc_users)
+      def issue_edit_with_anonymous(user, journal)
         issue = journal.journalized
-        mail = issue_edit_without_anonymous(journal, to_users, cc_users)
+        mail = issue_edit_without_anonymous(user, journal)
         redmine_headers 'Issue-Author' => issue.author.anonymous? ? issue.author_mail : issue.author.login
         mail
       end
